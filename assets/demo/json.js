@@ -5,20 +5,26 @@ xhr.onreadystatechange = function() {
       var response = JSON.parse(xhr.responseText);
       console.log(response);
       // Process the JSON data
-      //var temp = response["temperatura"];
-      //var vlaga = response["vlaznost"];
-      //var glas = response["glasnost"];
-      //var svetl = response["svetlost"];
-      myLineChartTemperatura.data.datasets[0].data = response.temperatura;
+      var temperaturaData = [];
+      var vlagaData = [];
+      var glasnostData = [];
+      var svetlostData = [];
+      for (var i = 0; i < response.length; i++) {
+        temperaturaData.push(response[i].temperatura);
+        vlagaData.push(response[i].vlaga);
+        glasnostData.push(response[i].glasnost);
+        svetlostData.push(response[i].svetlost);
+      }
+      myLineChartTemperatura.data.datasets[0].data = temperaturaData;
       myLineChartTemperatura.update();
 
-      myLineChartVlaga.data.datasets[0].data = response.vlaga;
+      myLineChartVlaga.data.datasets[0].data = vlagaData;
       myLineChartVlaga.update();
 
-      myLineChartGlasnost.data.datasets[0].data = response.glasnost;
+      myLineChartGlasnost.data.datasets[0].data = glasnostData;
       myLineChartGlasnost.update();
 
-      myLineChartSvetlost.data.datasets[0].data = response.svetloba;
+      myLineChartSvetlost.data.datasets[0].data = svetlostData;
       myLineChartSvetlost.update();
     } else {
       console.error('Error:', xhr.status);
