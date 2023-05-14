@@ -3,209 +3,223 @@ Chart.defaults.global.defaultFontFamily = '-apple-system,system-ui,BlinkMacSyste
 Chart.defaults.global.defaultFontColor = '#292b2c';
 
 // Area Chart Example
-var ctx = document.getElementById("temperaturaChart");
-var myLineChart = new Chart(ctx, {
-  type: 'line',
-  data: {
-    labels: ["Mar 1", "Mar 2", "Mar 3", "Mar 4", "Mar 5", "Mar 6", "Mar 7", "Mar 8", "Mar 9", "Mar 10", "Mar 11", "Mar 12", "Mar 13"],
-    datasets: [{
-      label: "Sessions",
-      lineTension: 0.3,
-      backgroundColor: "rgba(2,117,216,0.2)",
-      borderColor: "rgba(2,117,216,1)",
-      pointRadius: 5,
-      pointBackgroundColor: "rgba(2,117,216,1)",
-      pointBorderColor: "rgba(255,255,255,0.8)",
-      pointHoverRadius: 5,
-      pointHoverBackgroundColor: "rgba(2,117,216,1)",
-      pointHitRadius: 50,
-      pointBorderWidth: 2,
-      data: [10000, 30162, 26263, 18394, 18287, 28682, 31274, 33259, 25849, 24159, 32651, 31984, 38451],
+// Adjusting the chart options
+var temperaturaChartOptions = {
+  scales: {
+    xAxes: [{
+      time: {
+        unit: 'date'
+      },
+      gridLines: {
+        display: false
+      },
+      ticks: {
+        maxTicksLimit: 7
+      }
+    }],
+    yAxes: [{
+      ticks: {
+        min: 0,
+        max: 100, // Adjust the maximum value according to your data
+        maxTicksLimit: 5
+      },
+      gridLines: {
+        color: "rgba(0, 0, 0, .125)",
+      }
     }],
   },
-  options: {
-    scales: {
-      xAxes: [{
-        time: {
-          unit: 'date'
-        },
-        gridLines: {
-          display: false
-        },
-        ticks: {
-          maxTicksLimit: 7
-        }
-      }],
-      yAxes: [{
-        ticks: {
-          min: 0,
-          max: 40000,
-          maxTicksLimit: 5
-        },
-        gridLines: {
-          color: "rgba(0, 0, 0, .125)",
-        }
-      }],
-    },
-    legend: {
-      display: false
-    }
+  legend: {
+    display: false
   }
-});
+};
 
+// Adjusting the chart data structure
+var temperaturaChartData = {
+  labels: response.labels, // Assuming the server response includes an array of labels
+  datasets: [{
+    label: "Temperature",
+    lineTension: 0.3,
+    backgroundColor: "rgba(2,117,216,0.2)",
+    borderColor: "rgba(2,117,216,1)",
+    pointRadius: 5,
+    pointBackgroundColor: "rgba(2,117,216,1)",
+    pointBorderColor: "rgba(255,255,255,0.8)",
+    pointHoverRadius: 5,
+    pointHoverBackgroundColor: "rgba(2,117,216,1)",
+    pointHitRadius: 50,
+    pointBorderWidth: 2,
+    data: response.temperatura // Assuming the server response includes an array of temperature values
+  }],
+};
 
+// Update temperatura chart options and data
+myLineChartTemperatura.options = temperaturaChartOptions;
+myLineChartTemperatura.data = temperaturaChartData;
+myLineChartTemperatura.update();
 
-var ctx = document.getElementById("vlagaChart");
-var myLineChart = new Chart(ctx, {
-  type: 'line',
-  data: {
-    labels: ["Mar 1", "Mar 2", "Mar 3", "Mar 4", "Mar 5", "Mar 6", "Mar 7", "Mar 8", "Mar 9", "Mar 10", "Mar 11", "Mar 12", "Mar 13"],
-    datasets: [{
-      label: "Sessions",
-      lineTension: 0.3,
-      backgroundColor: "rgba(2,117,216,0.2)",
-      borderColor: "rgba(2,117,216,1)",
-      pointRadius: 5,
-      pointBackgroundColor: "rgba(2,117,216,1)",
-      pointBorderColor: "rgba(255,255,255,0.8)",
-      pointHoverRadius: 5,
-      pointHoverBackgroundColor: "rgba(2,117,216,1)",
-      pointHitRadius: 50,
-      pointBorderWidth: 2,
-      data: [10000, 30162, 26263, 18394, 18287, 28682, 31274, 33259, 25849, 24159, 32651, 31984, 38451],
+// Adjusting the chart options
+var temperaturaChartOptions = {
+  scales: {
+    xAxes: [{
+      time: {
+        unit: 'date'
+      },
+      gridLines: {
+        display: false
+      },
+      ticks: {
+        maxTicksLimit: 7
+      }
+    }],
+    yAxes: [{
+      ticks: {
+        min: 0,
+        max: 100, // Adjust the maximum value according to your data
+        maxTicksLimit: 5
+      },
+      gridLines: {
+        color: "rgba(0, 0, 0, .125)",
+      }
     }],
   },
-  options: {
-    scales: {
-      xAxes: [{
-        time: {
-          unit: 'date'
-        },
-        gridLines: {
-          display: false
-        },
-        ticks: {
-          maxTicksLimit: 7
-        }
-      }],
-      yAxes: [{
-        ticks: {
-          min: 0,
-          max: 40000,
-          maxTicksLimit: 5
-        },
-        gridLines: {
-          color: "rgba(0, 0, 0, .125)",
-        }
-      }],
-    },
-    legend: {
-      display: false
-    }
+  legend: {
+    display: false
   }
-});
+};
 
 
-var ctx = document.getElementById("svetlostChart");
-var myLineChart = new Chart(ctx, {
-  type: 'line',
-  data: {
-    labels: ["Mar 1", "Mar 2", "Mar 3", "Mar 4", "Mar 5", "Mar 6", "Mar 7", "Mar 8", "Mar 9", "Mar 10", "Mar 11", "Mar 12", "Mar 13"],
-    datasets: [{
-      label: "Sessions",
-      lineTension: 0.3,
-      backgroundColor: "rgba(2,117,216,0.2)",
-      borderColor: "rgba(2,117,216,1)",
-      pointRadius: 5,
-      pointBackgroundColor: "rgba(2,117,216,1)",
-      pointBorderColor: "rgba(255,255,255,0.8)",
-      pointHoverRadius: 5,
-      pointHoverBackgroundColor: "rgba(2,117,216,1)",
-      pointHitRadius: 50,
-      pointBorderWidth: 2,
-      data: [10000, 30162, 26263, 18394, 18287, 28682, 31274, 33259, 25849, 24159, 32651, 31984, 38451],
+// Adjusting the chart data structure
+var vlagaChartData = {
+  labels: response.labels, // Assuming the server response includes an array of labels
+  datasets: [{
+    label: "Vlaga",
+    lineTension: 0.3,
+    backgroundColor: "rgba(2,117,216,0.2)",
+    borderColor: "rgba(2,117,216,1)",
+    pointRadius: 5,
+    pointBackgroundColor: "rgba(2,117,216,1)",
+    pointBorderColor: "rgba(255,255,255,0.8)",
+    pointHoverRadius: 5,
+    pointHoverBackgroundColor: "rgba(2,117,216,1)",
+    pointHitRadius: 50,
+    pointBorderWidth: 2,
+    data: response.vlaga // Assuming the server response includes an array of temperature values
+  }],
+};
+
+// Update temperatura chart options and data
+myLineChartVlaga.options = vlagaChartOptions;
+myLineChartVlaga.data = vlagaChartData;
+myLineChartVlaga.update();
+
+// Adjusting the chart options
+var temperaturaChartOptions = {
+  scales: {
+    xAxes: [{
+      time: {
+        unit: 'date'
+      },
+      gridLines: {
+        display: false
+      },
+      ticks: {
+        maxTicksLimit: 7
+      }
+    }],
+    yAxes: [{
+      ticks: {
+        min: 0,
+        max: 100, // Adjust the maximum value according to your data
+        maxTicksLimit: 5
+      },
+      gridLines: {
+        color: "rgba(0, 0, 0, .125)",
+      }
     }],
   },
-  options: {
-    scales: {
-      xAxes: [{
-        time: {
-          unit: 'date'
-        },
-        gridLines: {
-          display: false
-        },
-        ticks: {
-          maxTicksLimit: 7
-        }
-      }],
-      yAxes: [{
-        ticks: {
-          min: 0,
-          max: 40000,
-          maxTicksLimit: 5
-        },
-        gridLines: {
-          color: "rgba(0, 0, 0, .125)",
-        }
-      }],
-    },
-    legend: {
-      display: false
-    }
+  legend: {
+    display: false
   }
-});
+};
+
+// Adjusting the chart data structure
+var svetlostChartData = {
+  labels: response.labels, // Assuming the server response includes an array of labels
+  datasets: [{
+    label: "Svetlost",
+    lineTension: 0.3,
+    backgroundColor: "rgba(2,117,216,0.2)",
+    borderColor: "rgba(2,117,216,1)",
+    pointRadius: 5,
+    pointBackgroundColor: "rgba(2,117,216,1)",
+    pointBorderColor: "rgba(255,255,255,0.8)",
+    pointHoverRadius: 5,
+    pointHoverBackgroundColor: "rgba(2,117,216,1)",
+    pointHitRadius: 50,
+    pointBorderWidth: 2,
+    data: response.svetlost // Assuming the server response includes an array of temperature values
+  }],
+};
+
+// Update temperatura chart options and data
+myLineChartSvetlost.options = svetlostChartOptions;
+myLineChartSvetlost.data = svetlostChartData;
+myLineChartSvetlost.update();
 
 
-var ctx = document.getElementById("glasnostChart");
-var myLineChart = new Chart(ctx, {
-  type: 'line',
-  data: {
-    labels: ["Mar 1", "Mar 2", "Mar 3", "Mar 4", "Mar 5", "Mar 6", "Mar 7", "Mar 8", "Mar 9", "Mar 10", "Mar 11", "Mar 12", "Mar 13"],
-    datasets: [{
-      label: "Sessions",
-      lineTension: 0.3,
-      backgroundColor: "rgba(2,117,216,0.2)",
-      borderColor: "rgba(2,117,216,1)",
-      pointRadius: 5,
-      pointBackgroundColor: "rgba(2,117,216,1)",
-      pointBorderColor: "rgba(255,255,255,0.8)",
-      pointHoverRadius: 5,
-      pointHoverBackgroundColor: "rgba(2,117,216,1)",
-      pointHitRadius: 50,
-      pointBorderWidth: 2,
-      data: [10000, 30162, 26263, 18394, 18287, 28682, 31274, 33259, 25849, 24159, 32651, 31984, 38451],
+// Adjusting the chart options
+var temperaturaChartOptions = {
+  scales: {
+    xAxes: [{
+      time: {
+        unit: 'date'
+      },
+      gridLines: {
+        display: false
+      },
+      ticks: {
+        maxTicksLimit: 7
+      }
+    }],
+    yAxes: [{
+      ticks: {
+        min: 0,
+        max: 100, // Adjust the maximum value according to your data
+        maxTicksLimit: 5
+      },
+      gridLines: {
+        color: "rgba(0, 0, 0, .125)",
+      }
     }],
   },
-  options: {
-    scales: {
-      xAxes: [{
-        time: {
-          unit: 'date'
-        },
-        gridLines: {
-          display: false
-        },
-        ticks: {
-          maxTicksLimit: 7
-        }
-      }],
-      yAxes: [{
-        ticks: {
-          min: 0,
-          max: 40000,
-          maxTicksLimit: 5
-        },
-        gridLines: {
-          color: "rgba(0, 0, 0, .125)",
-        }
-      }],
-    },
-    legend: {
-      display: false
-    }
+  legend: {
+    display: false
   }
-});
+};
+
+// Adjusting the chart data structure
+var glasnostChartData = {
+  labels: response.labels, // Assuming the server response includes an array of labels
+  datasets: [{
+    label: "Glasnost",
+    lineTension: 0.3,
+    backgroundColor: "rgba(2,117,216,0.2)",
+    borderColor: "rgba(2,117,216,1)",
+    pointRadius: 5,
+    pointBackgroundColor: "rgba(2,117,216,1)",
+    pointBorderColor: "rgba(255,255,255,0.8)",
+    pointHoverRadius: 5,
+    pointHoverBackgroundColor: "rgba(2,117,216,1)",
+    pointHitRadius: 50,
+    pointBorderWidth: 2,
+    data: response.glasnost // Assuming the server response includes an array of temperature values
+  }],
+};
+
+// Update temperatura chart options and data
+myLineChartGlasnost.options = glasnostChartOptions;
+myLineChartGlasnost.data = glasnostChartData;
+myLineChartGlasnost.update();
 
 
 
